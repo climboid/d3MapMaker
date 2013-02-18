@@ -42,7 +42,7 @@ This will create what you need an launch a localhost:7777. Go that that URL and 
 
 ## Todos
 <ol>
-  <li>Clean up the dictionary of countres. Slice all of the white space and convert all to lowercase</li>
+  <li>Make the dictionary of countries more robust to handle special characters, partial type ins etc.</li>
   <li>Include js code to center the map projection and scale it to something bigger than 900</li>
 </ol>
 

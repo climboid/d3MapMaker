@@ -245,7 +245,7 @@ symbol_dic = {
   "GGY" :"guernsey",
   "IRQ" :"iraq",
   "AUT" :"austria",
-  "TTO" :"trinidad and tobago",
+  "TTO" :"trinidadandtobago",
   "KWT" :"kuwait",
   "MTQ" :"martinique",
   "TJK" :"tajikistan",
@@ -262,7 +262,7 @@ def find_key(dic, val):
 
 # get the data
 countryToCreate = raw_input('Country name? ')
-# countryToCreate = countryToCreate.strip()
+countryToCreate = countryToCreate.strip()
 
 countryToCreate = countryToCreate.lower()
 fetchCountry = find_key(symbol_dic, countryToCreate)

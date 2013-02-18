@@ -7,344 +7,345 @@ import webbrowser
 import subprocess
 
 symbol_dic = {
-     "AFG_Afghanistan":"Afghanistan",
-     "ALA_Aland Islands":"Aland Islands",
-     "ALB_Albania":"Albania",
-     "DZA_Algeria":"Algeria",
-     "ASM_American Samoa":"American Samoa",
-     "AND_Andorra":"Andorra",
-     "AGO_Angola":"Angola",
-     "AIA_Anguilla Island":"Anguilla Island",
-     "ATA_Antarctica":"Antarctica",
-     "ATG_Antigua and Barbuda":"Antigua and Barbuda",
-     "ARG_Argentina":"Argentina",
-     "ARM_Armenia":"Armenia",
-     "ABW_Aruba":"Aruba",
-     "AUS_Australia":"Australia",
-     "AUT_Austria":"Austria",
-     "AZE_Azerbaijan":"Azerbaijan",
-     "BHS_Bahamas":"Bahamas",
-     "BHR_Bahrain":"Bahrain",
-     "BGD_Bangladesh":"Bangladesh",
-     "BRB_Barbados":"Barbados",
-     "BLR_Belarus":"Belarus",
-     "BEL_Belgium":"Belgium",
-     "BLZ_Belize":"Belize",
-     "BEN_Benin":"Benin",
-     "BMU_Bermuda":"Bermuda",
-     "BTN_Bhutan":"Bhutan",
-     "BOL_Bolivia":"Bolivia",
-     "BIH_Bosnia and Herzegovina":"Bosnia and Herzegovina",
-     "BWA_Botswana":"Botswana",
-     "BVT_Bouvet Island":"Bouvet Island",
-     "BRA_Brazil":"Brazil",
-     "IOT_British Indian Ocean Territory":"British Indian Ocean Territory",
-     "VGB_British Virgin Islands":"British Virgin Islands",
-     "BRN_Brunei Darussalam":"Brunei Darussalam",
-     "BGR_Bulgaria":"Bulgaria",
-     "BFA_Burkina Faso":"Burkina Faso",
-     "BDI_Burundi":"Burundi",
-     "KHM_Cambodia":"Cambodia",
-     "CMR_Cameroon":"Cameroon",
-     "CAN_Canada":"Canada",
-     "CPV_Cape Verde":"Cape Verde",
-     "CYM_Cayman Islands":"Cayman Islands",
-     "CAF_Central African Republic":"Central African Republic",
-     "TCD_Chad":"Chad",
-     "CHL_Chile":"Chile",
-     "CHN_China":"China",
-     "CXR_Christmas Island":"Christmas Island",
-     "CCK_Cocos Islands":"Cocos Islands",
-     "COL_Colombia":"Colombia",
-     "COM_Comoros":"Comoros",
-     "COG_Congo, Republic of":"Congo, Republic of",
-     "COD_Congo, The Democratic Republic of the":"Congo, The Democratic Republic of the",
-     "COK_Cook Islands":"Cook Islands",
-     "CRI_Costa Rica":"Costa Rica",
-     "CIV_Cote d'Ivoire":"Cote d'Ivoire",
-     "HRV_Croatia":"Croatia",
-     "CUB_Cuba":"Cuba",
-     "CYP_Cyprus":"Cyprus",
-     "CZE_Czech Republic":"Czech Republic",
-     "DNK_Denmark":"Denmark",
-     "DJI_Djibouti":"Djibouti",
-     "DMA_Dominica":"Dominica",
-     "DOM_Dominican Republic":"Dominican Republic",
-     "ECU_Ecuador":"Ecuador",
-     "EGY_Egypt":"Egypt",
-     "SLV_El Salvador":"El Salvador",
-     "GNQ_Equatorial Guinea":"Equatorial Guinea",
-     "ERI_Eritrea":"Eritrea",
-     "EST_Estonia":"Estonia",
-     "ETH_Ethiopia":"Ethiopia",
-     "FLK_Falkland Islands":"Falkland Islands",
-     "FRO_Faroe Islands":"Faroe Islands",
-     "FJI_Fiji":"Fiji",
-     "FIN_Finland":"Finland",
-     "FRA_France":"France",
-     "GUF_French Guiana":"French Guiana",
-     "PYF_French Polynesia":"French Polynesia",
-     "ATF_French Southern Territories":"French Southern Territories",
-     "GAB_Gabon":"Gabon",
-     "GMB_Gambia":"Gambia",
-     "GEO_Georgia":"Georgia",
-     "DEU_Germany":"Germany",
-     "GHA_Ghana":"Ghana",
-     "GIB_Gibraltar":"Gibraltar",
-     "GRC_Greece":"Greece",
-     "GRL_Greenland":"Greenland",
-     "GRD_Grenada":"Grenada",
-     "GLP_Guadeloupe":"Guadeloupe",
-     "GUM_Guam":"Guam",
-     "GTM_Guatemala":"Guatemala",
-     "GGY_Guernsey":"Guernsey",
-     "GIN_Guinea":"Guinea",
-     "GNB_Guinea-Bissau":"Guinea-Bissau",
-     "GUY_Guyana":"Guyana",
-     "HTI_Haiti":"Haiti",
-     "HMD_Heard Island and McDonald Islands":"Heard Island and McDonald Islands",
-     "HND_Honduras":"Honduras",
-     "HKG_Hongkong":"Hongkong",
-     "HUN_Hungary":"Hungary",
-     "ISL_Iceland":"Iceland",
-     "IND_India":"India",
-     "IDN_Indonesia":"Indonesia",
-     "IRN_Iran":"Iran",
-     "IRQ_Iraq":"Iraq",
-     "IRL_Ireland":"Ireland",
-     "IMN_Isle of Man":"Isle of Man",
-     "ISR_Israel":"Israel",
-     "ITA_Italy":"Italy",
-     "JAM_Jamaica":"Jamaica",
-     "JEY_Jersey":"Jersey",
-     "JPN_Japan":"Japan",
-     "JOR_Jordan":"Jordan",
-     "KAZ_Kazakhstan":"Kazakhstan",
-     "KEN_Kenya":"Kenya",
-     "KIR_Kiribati":"Kiribati",
-   "KO-_Kosova":"Kosova",
-     "KWT_Kuwait":"Kuwait",
-     "KGZ_Kyrgyzstan":"Kyrgyzstan",
-     "LAO_Laos":"Laos",
-     "LVA_Latvia":"Latvia",
-     "LBN_Lebanon":"Lebanon",
-     "LSO_Lesotho":"Lesotho",
-     "LBR_Liberia":"Liberia",
-     "LBY_Libya":"Libya",
-     "LIE_Liechtenstein":"Liechtenstein",
-     "LTU_Lithuania":"Lithuania",
-     "LUX_Luxembourg":"Luxembourg",
-     "MAC_Macao":"Macao",
-     "MKD_Macedonia":"Macedonia",
-     "MDG_Madagascar":"Madagascar",
-     "MWI_Malawi":"Malawi",
-     "MYS_Malaysia":"Malaysia",
-     "MDV_Maldives":"Maldives",
-     "MLI_Mali":"Mali",
-     "MLT_Malta":"Malta",
-     "MHL_Marshall Islands":"Marshall Islands",
-     "MTQ_Martinique":"Martinique",
-     "MRT_Mauritania":"Mauritania",
-     "MUS_Mauritius":"Mauritius",
-     "MYT_Mayotte":"Mayotte",
-     "MEX_Mexico":"Mexico",
-     "FSM_Micronesia, Federated States of ":"Micronesia, Federated States of ",
-     "MDA_Moldova":"Moldova",
-     "MCO_Monaco":"Monaco",
-     "MNG_Mongolia":"Mongolia",
-     "MNE_Montenegro":"Montenegro",
-     "MSR_Montserrat":"Montserrat",
-     "MAR_Morocco":"Morocco",
-     "MOZ_Mozambique":"Mozambique",
-     "MMR_Myanmar":"Myanmar",
-     "NAM_Namibia":"Namibia",
-     "NRU_Nauru":"Nauru",
-     "NPL_Nepal":"Nepal",
-     "NLD_Netherlands":"Netherlands",
-     "ANT_Netherlands Antilles":"Netherlands Antilles",
-     "NCL_New Caledonia":"New Caledonia",
-     "NZL_New Zealand":"New Zealand",
-     "NIC_Nicaragua":"Nicaragua",
-     "NER_Niger":"Niger",
-     "NGA_Nigeria":"Nigeria",
-     "NIU_Niue":"Niue",
-     "NFK_Norfolk Island":"Norfolk Island",
-     "PRK_North Korea":"North Korea",
-     "MNP_Northern Mariana Islands":"Northern Mariana Islands",
-     "NOR_Norway":"Norway",
-     "OMN_Oman":"Oman",
-     "PAK_Pakistan":"Pakistan",
-     "PLW_Palau":"Palau",
-     "PSE_Palestina":"Palestina",
-     "PAN_Panama":"Panama",
-     "PNG_Papua New Guinea":"Papua New Guinea",
-     "PRY_Paraguay":"Paraguay",
-     "PER_Peru":"Peru",
-     "PHL_Philippines":"Philippines",
-     "PCN_Pitcairn Islands":"Pitcairn Islands",
-     "POL_Poland":"Poland",
-     "PRT_Portugal":"Portugal",
-     "PRI_Puerto Rico":"Puerto Rico",
-     "QAT_Qatar":"Qatar",
-     "REU_Reunion":"Reunion",
-     "ROU_Romania":"Romania",
-     "RUS_Russian Federation":"Russian Federation",
-     "RWA_Rwanda":"Rwanda",
-     "SHN_Saint Helena":"Saint Helena",
-     "KNA_Saint Kitts and Nevis":"Saint Kitts and Nevis",
-     "SPM_Saint Pierre and Miquelon":"Saint Pierre and Miquelon",
-     "VCT_Saint Vincent and the Grenadines":"Saint Vincent and the Grenadines",
-     "WSM_Samoa":"Samoa",
-     "SMR_San Marino":"San Marino",
-     "LCA_Santa Lucia":"Santa Lucia",
-     "STP_Sao Tome and Principe":"Sao Tome and Principe",
-     "SAU_Saudi Arabia":"Saudi Arabia",
-     "SEN_Senegal":"Senegal",
-     "SRB_Serbia":"Serbia",
-     "SYC_Seychelles":"Seychelles",
-     "SLE_Sierra Leone":"Sierra Leone",
-     "SGP_Singapore":"Singapore",
-     "SVK_Slovakia":"Slovakia",
-     "SVN_Slovenia":"Slovenia",
-     "SLB_Solomon Islands":"Solomon Islands",
-     "SOM_Somalia":"Somalia",
-     "ZAF_South Africa":"South Africa",
-     "SGS_South Georgia and the South Sandwich Islands":"South Georgia and the South Sandwich Islands",
-     "KOR_South Korea":"South Korea",
-     "ESP_Spain":"Spain",
-     "LKA_Sri Lanka":"Sri Lanka",
-     "SDN_Sudan":"Sudan",
-     "SUR_Suriname":"Suriname",
-     "SJM_Svalbard and Jan Mayen":"Svalbard and Jan Mayen",
-     "SWZ_Swaziland":"Swaziland",
-     "SWE_Sweden":"Sweden",
-     "CHE_Switzerland":"Switzerland",
-     "SYR_Syria":"Syria",
-     "TWN_Taiwan":"Taiwan",
-     "TJK_Tajikistan":"Tajikistan",
-     "TZA_Tanzania":"Tanzania",
-     "THA_Thailand":"Thailand",
-     "TLS_Timor-Leste":"Timor-Leste",
-     "TGO_Togo":"Togo",
-     "TKL_Tokelau":"Tokelau",
-     "TON_Tonga":"Tonga",
-     "TTO_Trinidad and Tobago":"Trinidad and Tobago",
-     "TUN_Tunisia":"Tunisia",
-     "TUR_Turkey":"Turkey",
-     "TKM_Turkmenistan":"Turkmenistan",
-     "TCA_Turks and Caicos Islands":"Turks and Caicos Islands",
-     "TUV_Tuvalu":"Tuvalu",
-     "UGA_Uganda":"Uganda",
-     "UKR_Ukraine":"Ukraine",
-     "ARE_United Arab Emirates":"United Arab Emirates",
-     "GBR_United Kingdom":"United Kingdom",
-     "USA_United States":"United States",
-     "UMI_United States Minor Outlying Island":"United States Minor Outlying Island",
-     "URY_Uruguay":"Uruguay",
-     "UZB_Uzbekistan":"Uzbekistan",
-     "VUT_Vanuatu":"Vanuatu",
-     "VAT_Vatican":"Vatican",
-     "VEN_Venezuela":"Venezuela",
-     "VNM_Vietnam":"Vietnam",
-     "VIR_Virgin Islands U.S":"Virgin Islands, U.S",
-     "WLF_Wallis and Futuna":"Wallis and Futuna",
-     "ESH_Western Sahara":"Western Sahara",
-     "YEM_Yemen":"Yemen",
-     "ZMB_Zambia":"Zambia",
-     "ZWE_Zimbabwe":"Zimbabwe"
+  "PYF" :"french polynesia",
+  "AND" :"andorra",
+  "SLV" :"el salvador",
+  "MRT" :"mauritania",
+  "GEO" :"georgia",
+  "TON" :"tonga",
+  "GUF" :"french guiana",
+  "NLD" :"netherlands",
+  "TUV" :"tuvalu",
+  "DOM" :"dominican republic",
+  "SYC" :"seychelles",
+  "COL" :"colombia",
+  "JPN" :"japan",
+  "BFA" :"burkina faso",
+  "ISL" :"iceland",
+  "SGP" :"singapore",
+  "VNM" :"vietnam",
+  "SVK" :"slovakia",
+  "TZA" :"tanzania",
+  "TLS" :"timor-leste",
+  "GAB" :"gabon",
+  "JOR" :"jordan",
+  "SWE" :"sweden",
+  "ARM" :"armenia",
+  "QAT" :"qatar",
+  "SHN" :"saint helena",
+  "ATA" :"antarctica",
+  "LTU" :"lithuania",
+  "FLK" :"falkland islands",
+  "SJM" :"svalbard and jan mayen",
+  "BLZ" :"belize",
+  "PER" :"peru",
+  "ITA" :"italy",
+  "MNP" :"northern mariana islands",
+  "DEU" :"germany",
+  "KGZ" :"kyrgyzstan",
+  "PRI" :"puerto rico",
+  "BDI" :"burundi",
+  "AGO" :"angola",
+  "KAZ" :"kazakhstan",
+  "MLT" :"malta",
+  "KIR" :"kiribati",
+  "ATG" :"antigua and barbuda",
+  "GIN" :"guinea",
+  "MWI" :"malawi",
+  "NRU" :"nauru",
+  "BMU" :"bermuda",
+  "VUT" :"vanuatu",
+  "ESP" :"spain",
+  "MSR" :"montserrat",
+  "KNA" :"saint kitts and nevis",
+  "IOT" :"british indian ocean territory",
+  "REU" :"reunion",
+  "GMB" :"gambia",
+  "CPV" :"cape verde",
+  "AFG" :"afghanistan",
+  "CMR" :"cameroon",
+  "IDN" :"indonesia",
+  "SUR" :"suriname",
+  "TWN" :"taiwan",
+  "SEN" :"senegal",
+  "LCA" :"santa lucia",
+  "CRI" :"costa rica",
+  "KOR" :"south korea",
+  "SDN" :"sudan",
+  "ASM" :"american samoa",
+  "MNG" :"mongolia",
+  "ANT" :"netherlands antilles",
+  "WLF" :"wallis and futuna",
+  "SPM" :"saint pierre and miquelon",
+  "MYS" :"malaysia",
+  "BRA" :"brazil",
+  "THA" :"thailand",
+  "RUS" :"russian federation",
+  "MDA" :"moldova",
+  "EGY" :"egypt",
+  "COD" :"congo, the democratic republic of the",
+  "NIU" :"niue",
+  "BIH" :"bosnia and herzegovina",
+  "DMA" :"dominica",
+  "RWA" :"rwanda",
+  "PLW" :"palau",
+  "UKR" :"ukraine",
+  "MAC" :"macao",
+  "WSM" :"samoa",
+  "GHA" :"ghana",
+  "NOR" :"norway",
+  "FIN" :"finland",
+  "PAN" :"panama",
+  "TGO" :"togo",
+  "OMN" :"oman",
+  "NCL" :"new caledonia",
+  "BEN" :"benin",
+  "UGA" :"uganda",
+  "GLP" :"guadeloupe",
+  "BEL" :"belgium",
+  "ZAF" :"south africa",
+  "BVT" :"bouvet island",
+  "ARG" :"argentina",
+  "LBY" :"libya",
+  "PSE" :"palestina",
+  "SMR" :"san marino",
+  "EST" :"estonia",
+  "TUN" :"tunisia",
+  "NAM" :"namibia",
+  "BRN" :"brunei darussalam",
+  "BLR" :"belarus",
+  "IRL" :"ireland",
+  "SGS" :"south georgia and the south sandwich islands",
+  "LBR" :"liberia",
+  "URY" :"uruguay",
+  "FSM" :"micronesia, federated states of ",
+  "ZWE" :"zimbabwe",
+  "GUY" :"guyana",
+  "NIC" :"nicaragua",
+  "BOL" :"bolivia",
+  "GRL" :"greenland",
+  "SAU" :"saudi arabia",
+  "TKL" :"tokelau",
+  "UZB" :"uzbekistan",
+  "FRA" :"france",
+  "ARE" :"united arab emirates",
+  "ESH" :"western sahara",
+  "AUS" :"australia",
+  "MCO" :"monaco",
+  "FJI" :"fiji",
+  "LKA" :"sri lanka",
+  "ERI" :"eritrea",
+  "ATF" :"french southern territories",
+  "ALA" :"aland islands",
+  "NER" :"niger",
+  "ZMB" :"zambia",
+  "POL" :"poland",
+  "CHL" :"chile",
+  "YEM" :"yemen",
+  "COG" :"congo, republic of",
+  "CXR" :"christmas island",
+  "MUS" :"mauritius",
+  "SYR" :"syria",
+  "HND" :"honduras",
+  "GRD" :"grenada",
+  "DJI" :"djibouti",
+  "GRC" :"greece",
+  "ISR" :"israel",
+  "CCK" :"cocos islands",
+  "GUM" :"guam",
+  "CAN" :"canada",
+  "VEN" :"venezuela",
+  "SWZ" :"swaziland",
+  "TUR" :"turkey",
+  "NZL" :"new zealand",
+  "LUX" :"luxembourg",
+  "MKD" :"macedonia",
+  "CZE" :"czech republic",
+  "MOZ" :"mozambique",
+  "VCT" :"saint vincent and the grenadines",
+  "IMN" :"isle of man",
+  "MNE" :"montenegro",
+  "FRO" :"faroe islands",
+  "UMI" :"united states minor outlying island",
+  "BHS" :"bahamas",
+  "LIE" :"liechtenstein",
+  "HUN" :"hungary",
+  "ALB" :"albania",
+  "GNQ" :"equatorial guinea",
+  "ROU" :"romania",
+  "BGR" :"bulgaria",
+  "LAO" :"laos",
+  "HKG" :"hongkong",
+  "MYT" :"mayotte",
+  "SLE" :"sierra leone",
+  "VIR" :"virgin islands, u.s",
+  "ECU" :"ecuador",
+  "TCA" :"turks and caicos islands",
+  "BWA" :"botswana",
+  "STP" :"sao tome and principe",
+  "BGD" :"bangladesh",
+  "JEY" :"jersey",
+  "BRB" :"barbados",
+  "DNK" :"denmark",
+  "MHL" :"marshall islands",
+  "PCN" :"pitcairn islands",
+  "TKM" :"turkmenistan",
+  "LSO" :"lesotho",
+  "CHE" :"switzerland",
+  "BHR" :"bahrain",
+  "GBR" :"united kingdom",
+  "KHM" :"cambodia",
+  "MEX" :"mexico",
+  "TCD" :"chad",
+  "AZE" :"azerbaijan",
+  "COK" :"cook islands",
+  "AIA" :"anguilla island",
+  "JAM" :"jamaica",
+  "BTN" :"bhutan",
+  "PNG" :"papua new guinea",
+  "MDG" :"madagascar",
+  "NPL" :"nepal",
+  "PRY" :"paraguay",
+  "NFK" :"norfolk island",
+  "SLB" :"solomon islands",
+  "GNB" :"guinea-bissau",
+  "SRB" :"serbia",
+  "GTM" :"guatemala",
+  "MAR" :"morocco",
+  "ABW" :"aruba",
+  "CUB" :"cuba",
+  "CAF" :"central african republic",
+  "PRT" :"portugal",
+  "CYM" :"cayman islands",
+  "HMD" :"heard island and mcdonald islands",
+  "IND" :"india",
+  "HRV" :"croatia",
+  "SVN" :"slovenia",
+  "LBN" :"lebanon",
+  "NGA" :"nigeria",
+  "VGB" :"british virgin islands",
+  "DZA" :"algeria",
+  "USA" :"united states",
+  "GIB" :"gibraltar",
+  "CHN" :"china",
+  "CIV" :"cote d'ivoire",
+  "VAT" :"vatican",
+  "MLI" :"mali",
+  "KEN" :"kenya",
+  "MMR" :"myanmar",
+  "ETH" :"ethiopia",
+  "HTI" :"haiti",
+  "LVA" :"latvia",
+  "MDV" :"maldives",
+  "PRK" :"north korea",
+  "CYP" :"cyprus",
+  "KO-" :"kosova",
+  "IRN" :"iran",
+  "COM" :"comoros",
+  "GGY" :"guernsey",
+  "IRQ" :"iraq",
+  "AUT" :"austria",
+  "TTO" :"trinidad and tobago",
+  "KWT" :"kuwait",
+  "MTQ" :"martinique",
+  "TJK" :"tajikistan",
+  "PHL" :"philippines",
+  "SOM" :"somalia",
+  "PAK" :"pakistan"
 }
 
 
-def find_key(dic, val):
-    #return the key of dictionary dic given the value
-    return [k for k, v in symbol_dic.iteritems() if v == val][0]
 
-# get the data
-countryToCreate = raw_input('Country name? ')
-# countryToCreate = countryToCreate.strip()
+# def find_key(dic, val):
+#     #return the key of dictionary dic given the value
+#     return [k for k, v in symbol_dic.iteritems() if v == val][0]
 
-countryToCreate = countryToCreate[:1].upper() + countryToCreate[1:].lower()
-fetchCountry = find_key(symbol_dic, countryToCreate)
-fetchCountry = fetchCountry[:3]
+# # get the data
+# countryToCreate = raw_input('Country name? ')
+# # countryToCreate = countryToCreate.strip()
 
-url = "http://gadm.org/data/shp/"+fetchCountry+"_adm.zip"
+# countryToCreate = countryToCreate[:1].upper() + countryToCreate[1:].lower()
+# fetchCountry = find_key(symbol_dic, countryToCreate)
+# fetchCountry = fetchCountry[:3]
 
-print url
+# url = "http://gadm.org/data/shp/"+fetchCountry+"_adm.zip"
 
-file_name = url.split('/')[-1]
-u = urllib2.urlopen(url)
-f = open(file_name, 'wb')
-meta = u.info()
-file_size = int(meta.getheaders("Content-Length")[0])
-print "Downloading: %s Bytes: %s" % (file_name, file_size)
+# print url
 
-file_size_dl = 0
-block_sz = 8192
-while True:
-    buffer = u.read(block_sz)
-    if not buffer:
-        break
+# file_name = url.split('/')[-1]
+# u = urllib2.urlopen(url)
+# f = open(file_name, 'wb')
+# meta = u.info()
+# file_size = int(meta.getheaders("Content-Length")[0])
+# print "Downloading: %s Bytes: %s" % (file_name, file_size)
 
-    file_size_dl += len(buffer)
-    f.write(buffer)
-    status = r"%10d  [%3.2f%%]" % (file_size_dl, file_size_dl * 100. / file_size)
-    status = status + chr(8)*(len(status)+1)
-    print status,
+# file_size_dl = 0
+# block_sz = 8192
+# while True:
+#     buffer = u.read(block_sz)
+#     if not buffer:
+#         break
 
-f.close()
+#     file_size_dl += len(buffer)
+#     f.write(buffer)
+#     status = r"%10d  [%3.2f%%]" % (file_size_dl, file_size_dl * 100. / file_size)
+#     status = status + chr(8)*(len(status)+1)
+#     print status,
 
-#unzip the files
-zfile = zipfile.ZipFile(file_name)
+# f.close()
 
-for name in zfile.namelist():
-  (dirname, filename) = os.path.split(name)
-  print "Decompressing " + filename + " on " + os.getcwd()
-  fd = open(name,"w")
-  fd.write(zfile.read(name))
-  fd.close()
+# #unzip the files
+# zfile = zipfile.ZipFile(file_name)
 
-#convert file names to lower case this is needed for GDAL to work
-for filename in os.listdir("."):
-    os.rename(filename, filename.lower())
+# for name in zfile.namelist():
+#   (dirname, filename) = os.path.split(name)
+#   print "Decompressing " + filename + " on " + os.getcwd()
+#   fd = open(name,"w")
+#   fd.write(zfile.read(name))
+#   fd.close()
 
-#convert the shp file into geojson
-toConvert = fetchCountry+'_adm1.shp'
-os.system('/Library/Frameworks/GDAL.framework/Programs/ogr2ogr -f "GeoJSON" output.json '+toConvert)
+# #convert file names to lower case this is needed for GDAL to work
+# for filename in os.listdir("."):
+#     os.rename(filename, filename.lower())
 
-#create the html file with all needed dependencies to make the map
-finalFile = '<!doctype html>'
-finalFile+='<html>'
-finalFile+='<head>'
-finalFile+='<meta charset="utf-8"/>'
-finalFile+='<title></title>'
-finalFile+='<script src="http://d3js.org/d3.v3.min.js"></script>'
-finalFile+='</head>'
-finalFile+='<body>'
-finalFile+='<div id="mapContainer"></div>'
-finalFile+='<script>'
-finalFile+='var path, vis, xy;'
-finalFile+='xy = d3.geo.mercator().scale(900);'
-finalFile+='path = d3.geo.path().projection(xy);'
-finalFile+='vis = d3.select("#mapContainer").append("svg:svg").attr("width", 960).attr("height", 600);'
-finalFile+='d3.json("output.json", function(json) {'
-finalFile+='return vis.append("svg:g").attr("class", "tracts").selectAll("path").data(json.features).enter().append("svg:path").attr("d", path).attr("fill-opacity", 0.5).attr("fill", "#85C3C0").attr("stroke", "#222");'
-finalFile+='});'
-finalFile+='</script>'
-finalFile+='</body>'
-finalFile+='</html>'
+# #convert the shp file into geojson
+# toConvert = fetchCountry+'_adm1.shp'
+# os.system('/Library/Frameworks/GDAL.framework/Programs/ogr2ogr -f "GeoJSON" output.json '+toConvert)
 
-def MakeFile(file_name):
+# #create the html file with all needed dependencies to make the map
+# finalFile = '<!doctype html>'
+# finalFile+='<html>'
+# finalFile+='<head>'
+# finalFile+='<meta charset="utf-8"/>'
+# finalFile+='<title></title>'
+# finalFile+='<script src="http://d3js.org/d3.v3.min.js"></script>'
+# finalFile+='</head>'
+# finalFile+='<body>'
+# finalFile+='<div id="mapContainer"></div>'
+# finalFile+='<script>'
+# finalFile+='var path, vis, xy;'
+# finalFile+='xy = d3.geo.mercator().scale(900);'
+# finalFile+='path = d3.geo.path().projection(xy);'
+# finalFile+='vis = d3.select("#mapContainer").append("svg:svg").attr("width", 960).attr("height", 600);'
+# finalFile+='d3.json("output.json", function(json) {'
+# finalFile+='return vis.append("svg:g").attr("class", "tracts").selectAll("path").data(json.features).enter().append("svg:path").attr("d", path).attr("fill-opacity", 0.5).attr("fill", "#85C3C0").attr("stroke", "#222");'
+# finalFile+='});'
+# finalFile+='</script>'
+# finalFile+='</body>'
+# finalFile+='</html>'
 
-  temp_path = file_name
-  file = open(temp_path, 'w')
-  file.write(finalFile)
-  file.close()
-  print 'Execution completed. Map created successfully '
+# def MakeFile(file_name):
 
-MakeFile('index.html')
+#   temp_path = file_name
+#   file = open(temp_path, 'w')
+#   file.write(finalFile)
+#   file.close()
+#   print 'Execution completed. Map created successfully '
 
-subprocess.Popen(['python', '-m', 'SimpleHTTPServer', '7777'])
-webbrowser.open_new_tab('localhost:7777')
+# MakeFile('index.html')
+
+# subprocess.Popen(['python', '-m', 'SimpleHTTPServer', '7777'])
+# webbrowser.open_new_tab('localhost:7777')
 
 
 

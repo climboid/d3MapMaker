@@ -34,6 +34,10 @@ Run the python script
   </code>
 </pre>
 
+You will then be prompted to enter the name of the country that you want a map of. Type it in, hit enter and that should be it.
+
+<strong>NOTE</strong>: The scale of the map is set to 900. You might see it a bit small or maybe not even at all. Make sure to inspect your DOM to corroborate that the map was created.
+
 This will create what you need an launch a localhost:7777. Go that that URL and you should see your map.
 
 ## Todos

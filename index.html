@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <title>Auto map creator</title>
+  <script src="http://d3js.org/d3.v3.min.js"></script>
+</head>
+<body>
+  <div id="mapContainer"></div>
+    <script>
+    var path, vis, xy;
+    xy = d3.geo.mercator().scale(900);
+    path = d3.geo.path().projection(xy);
+    vis = d3.select("#mapContainer").append("svg:svg").attr("width", 960).attr("height", 600);
+    d3.json("output.json", function(json) {
+      return vis.append("svg:g")
+                .attr("class", "tracts")
+                .selectAll("path")
+                .data(json.features)
+                .enter()
+                .append("svg:path")
+                .attr("d", path)
+                .attr("fill-opacity", 0.5)
+                .attr("fill", "#85C3C0")
+                .attr("stroke", "#222");
+              });
+    </script>
+</body>
+</html>

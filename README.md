@@ -2,7 +2,7 @@ d3MapMaker
 ==========
 
 An automated d3 map maker. 
-Input the 3 character country code if the country you want. Example: AFG for Afghanistan, (this will improve in next updates) and you will get an index.html file with your map in SVG using D3 and scaled to 900.
+Input the 3 character country code of the country you want. Example: AFG for Afghanistan, (this will improve in next updates) and you will get an index.html file with your map in SVG using D3 and scaled to 900.
 
 
 # Instructions

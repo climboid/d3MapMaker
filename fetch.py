@@ -2,6 +2,7 @@ import urllib2
 import zipfile
 import os
 
+# get the data
 url = "http://gadm.org/data/shp/AFG_adm.zip"
 
 file_name = url.split('/')[-1]
@@ -26,8 +27,8 @@ while True:
 
 f.close()
 
+#unzip the files
 zfile = zipfile.ZipFile(file_name)
-print "in here and i dont have a zip file yet", file_name
 
 for name in zfile.namelist():
   (dirname, filename) = os.path.split(name)
@@ -35,3 +36,45 @@ for name in zfile.namelist():
   fd = open(name,"w")
   fd.write(zfile.read(name))
   fd.close()
+
+#convert file names to lower case this is needed for GDAL to work
+for filename in os.listdir("."):
+    os.rename(filename, filename.lower())
+
+#convert the shp file into geojson
+toConvert = 'afg_adm1.shp'
+os.system('/Library/Frameworks/GDAL.framework/Programs/ogr2ogr -f "GeoJSON" output.json '+toConvert)
+
+#create the html file with all needed dependencies to make the map
+finalFile = '<!doctype html>'
+finalFile+='<html>'
+finalFile+='<head>'
+finalFile+='<meta charset="utf-8"/>'
+finalFile+='<title></title>'
+finalFile+='<script src="http://d3js.org/d3.v3.min.js"></script>'
+finalFile+='</head>'
+finalFile+='<body>'
+finalFile+='<div id="mapContainer"></div>'
+finalFile+='<script>'
+finalFile+='var path, vis, xy;'
+finalFile+='xy = d3.geo.mercator().scale(500);'
+finalFile+='path = d3.geo.path().projection(xy);'
+finalFile+='vis = d3.select("#mapContainer").append("svg:svg").attr("width", 960).attr("height", 600);'
+finalFile+='d3.json("output.json", function(json) {'
+finalFile+='return vis.append("svg:g").attr("class", "tracts").selectAll("path").data(json.features).enter().append("svg:path").attr("d", path).attr("fill-opacity", 0.5).attr("fill", "#85C3C0").attr("stroke", "#222");'
+finalFile+='});'
+finalFile+='</script>'
+finalFile+='</body>'
+finalFile+='</html>'
+
+def MakeFile(file_name):
+
+  temp_path = file_name
+  file = open(temp_path, 'w')
+  file.write(finalFile)
+  file.close()
+  print 'Execution completed.'
+
+MakeFile('final.html')
+
+

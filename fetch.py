@@ -1,9 +1,16 @@
+#!/usr/bin/python
+
 import urllib2
 import zipfile
 import os
+import webbrowser
+
 
 # get the data
-url = "http://gadm.org/data/shp/AFG_adm.zip"
+countryToCreate = raw_input('Please type the abbreviation of the country you want to create a map of. Example: AFG is Afghanistan, CAN is Canada.')
+countryToCreate = countryToCreate.upper().strip()
+
+url = "http://gadm.org/data/shp/"+countryToCreate+"_adm.zip"
 
 file_name = url.split('/')[-1]
 u = urllib2.urlopen(url)
@@ -42,7 +49,7 @@ for filename in os.listdir("."):
     os.rename(filename, filename.lower())
 
 #convert the shp file into geojson
-toConvert = 'afg_adm1.shp'
+toConvert = countryToCreate+'_adm1.shp'
 os.system('/Library/Frameworks/GDAL.framework/Programs/ogr2ogr -f "GeoJSON" output.json '+toConvert)
 
 #create the html file with all needed dependencies to make the map
@@ -57,7 +64,7 @@ finalFile+='<body>'
 finalFile+='<div id="mapContainer"></div>'
 finalFile+='<script>'
 finalFile+='var path, vis, xy;'
-finalFile+='xy = d3.geo.mercator().scale(500);'
+finalFile+='xy = d3.geo.mercator().scale(900);'
 finalFile+='path = d3.geo.path().projection(xy);'
 finalFile+='vis = d3.select("#mapContainer").append("svg:svg").attr("width", 960).attr("height", 600);'
 finalFile+='d3.json("output.json", function(json) {'
@@ -73,8 +80,12 @@ def MakeFile(file_name):
   file = open(temp_path, 'w')
   file.write(finalFile)
   file.close()
-  print 'Execution completed.'
+  print 'Execution completed. Map created successfully '
 
-MakeFile('final.html')
+MakeFile('index.html')
+
+os.system('python -m SimpleHTTPServer 7777')
+
+
 
 

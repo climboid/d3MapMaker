@@ -38,7 +38,7 @@ This will create what you need an launch a localhost:7777. Go that that URL and 
 
 ## Todos
 <ol>
-  <li>Create the dictionary with country names and their corresponding abbreviations for diva to fetch the data</li>
+  <li>Clean up the dictionary of countres. Slice all of the white space and convert all to lowercase</li>
   <li>Include js code to center the map projection and scale it to something bigger than 900</li>
 </ol>
 

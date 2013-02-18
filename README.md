@@ -39,7 +39,6 @@ This will create what you need an launch a localhost:7777. Go that that URL and 
 ## Todos
 <ol>
   <li>Create the dictionary with country names and their corresponding abbreviations for diva to fetch the data</li>
-  <li>Automatically launch the default browser pointing to localhost:7777</li>
   <li>Include js code to center the map projection and scale it to something bigger than 900</li>
 </ol>
 

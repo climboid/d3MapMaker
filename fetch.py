@@ -4,6 +4,7 @@ import urllib2
 import zipfile
 import os
 import webbrowser
+import subprocess
 
 
 # get the data
@@ -84,7 +85,9 @@ def MakeFile(file_name):
 
 MakeFile('index.html')
 
-os.system('python -m SimpleHTTPServer 7777')
+subprocess.Popen(['python', '-m', 'SimpleHTTPServer', '7777'])
+webbrowser.open_new_tab('localhost:7777')
+
 
 
 

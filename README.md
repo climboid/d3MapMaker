@@ -36,13 +36,15 @@ You will then be prompted to enter the name of the country that you want a map o
 
 This will create the geoJSON object that the index.html file is expecting in order to render a map.
 
+Once the geoJSON file is there the script will launch a localhost on port 7777 opening up the index file with your country.
+
 <strong>NOTE</strong>: The scale of the map is set to 900. You might see it a bit small or maybe not even at all. Make sure to inspect your DOM to corroborate that the map was created.
 
-This will create what you need an launch a localhost:7777. Go that that URL and you should see your map.
 
 ## Todos
 <ol>
   <li>Make the dictionary of countries more robust to handle special characters, partial type ins etc.</li>
+  <li>If the user types in an error make sure to catch it</li>
   <li>Include js code to center the map projection and scale it to something bigger than 900</li>
   <li>Prettify the HTML code that is generated</li>
 </ol>

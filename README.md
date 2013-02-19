@@ -38,7 +38,6 @@ This will create the geoJSON object that the index.html file is expecting in ord
 
 Once the geoJSON file is there the script will launch a localhost on port 7777 opening up the index file with your country.
 
-<strong>NOTE</strong>: The scale of the map is set to 900. You might see it a bit small or maybe not even at all. Make sure to inspect your DOM to corroborate that the map was created.
 
 ## Supported countries
 <ul name="cnt"> 

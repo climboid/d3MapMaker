@@ -43,7 +43,7 @@ Once the geoJSON file is there the script will launch a localhost on port 7777 o
 ## Supported countries
 <ul name="cnt"> 
     <li value="AFG_Afghanistan">Afghanistan</li> 
-    <li value="ALA_Åland Islands">Åland Islands</li> 
+    <li value="ALA_Åland Islands">Aland Islands</li> 
     <li value="ALB_Albania">Albania</li> 
     <li value="DZA_Algeria">Algeria</li> 
     <li value="ASM_American Samoa">American Samoa</li> 
@@ -92,11 +92,11 @@ Once the geoJSON file is there the script will launch a localhost on port 7777 o
     <li value="CCK_Cocos Islands">Cocos Islands</li> 
     <li value="COL_Colombia">Colombia</li> 
     <li value="COM_Comoros">Comoros</li> 
-    <li value="COG_Congo, Republic of">Congo, Republic of</li> 
-    <li value="COD_Congo, The Democratic Republic of the">Congo, The Democratic Republic of the</li> 
+    <li value="COG_Congo, Republic of">Congo Republic of</li> 
+    <li value="COD_Congo, The Democratic Republic of the">Congo The Democratic Republic of the</li> 
     <li value="COK_Cook Islands">Cook Islands</li> 
     <li value="CRI_Costa Rica">Costa Rica</li> 
-    <li value="CIV_Côte d'Ivoire">Côte d'Ivoire</li> 
+    <li value="CIV_Côte d'Ivoire">Cote d'Ivoire</li> 
     <li value="HRV_Croatia">Croatia</li> 
     <li value="CUB_Cuba">Cuba</li> 
     <li value="CYP_Cyprus">Cyprus</li> 
@@ -183,7 +183,7 @@ Once the geoJSON file is there the script will launch a localhost on port 7777 o
     <li value="MUS_Mauritius">Mauritius</li> 
     <li value="MYT_Mayotte">Mayotte</li> 
     <li value="MEX_Mexico">Mexico</li> 
-    <li value="FSM_Micronesia, Federated States of ">Micronesia, Federated States of </li> 
+    <li value="FSM_Micronesia, Federated States of ">Micronesia Federated States of </li> 
     <li value="MDA_Moldova">Moldova</li> 
     <li value="MCO_Monaco">Monaco</li> 
     <li value="MNG_Mongolia">Mongolia</li> 
@@ -281,7 +281,7 @@ Once the geoJSON file is there the script will launch a localhost on port 7777 o
     <li value="VAT_Vatican">Vatican</li> 
     <li value="VEN_Venezuela">Venezuela</li> 
     <li value="VNM_Vietnam">Vietnam</li> 
-    <li value="VIR_Virgin Islands, U.S">Virgin Islands, U.S</li> 
+    <li value="VIR_Virgin Islands, U.S">Virgin Islands U.S</li> 
     <li value="WLF_Wallis and Futuna">Wallis and Futuna</li> 
     <li value="ESH_Western Sahara">Western Sahara</li> 
     <li value="YEM_Yemen">Yemen</li> 

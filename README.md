@@ -38,6 +38,7 @@ This will create the geoJSON object that the index.html file is expecting in ord
 
 Once the geoJSON file is there the script will launch a localhost on port 7777 opening up the index file with your country.
 
+Currently supports python verstion 2.7.2
 
 ## Supported countries
 <ul name="cnt"> 

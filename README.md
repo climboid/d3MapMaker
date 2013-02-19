@@ -45,8 +45,6 @@ Once the geoJSON file is there the script will launch a localhost on port 7777 o
 <ol>
   <li>Make the dictionary of countries more robust to handle special characters, partial type ins etc.</li>
   <li>If the user types in an error make sure to catch it</li>
-  <li>Include js code to center the map projection and scale it to something bigger than 900</li>
-  <li>Prettify the HTML code that is generated</li>
 </ol>
 
 ## Credit

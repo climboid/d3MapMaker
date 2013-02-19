@@ -6,7 +6,7 @@ An automated SVG map maker built with Python and d3.js
 # Instructions
 You need to install  the <a href="http://www.gdal.org/" target="_blank">(GDLA) Geo spatial Data Abstraction Library</a>. Mac users download from <a href="http://www.kyngchaos.com/software/frameworks" target="_blank">this link</a>
 
-Once you have downloaded GDAL install it.
+Once you have downloaded GDAL install the complete package.
 
 Create a repo for this map 
 

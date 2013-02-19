@@ -312,38 +312,6 @@ toConvert = fetchCountry+'_adm1.shp'
 
 os.system('/Library/Frameworks/GDAL.framework/Programs/ogr2ogr -f "GeoJSON" output.json '+toConvert)
 
-#create the html file with all needed dependencies to make the map
-# finalFile = '<!doctype html>'
-# finalFile+='<html>'
-# finalFile+='<head>'
-# finalFile+='<meta charset="utf-8"/>'
-# finalFile+='<title></title>'
-# finalFile+='<script src="http://d3js.org/d3.v3.min.js"></script>'
-# finalFile+='</head>'
-# finalFile+='<body>'
-# finalFile+='<div id="mapContainer"></div>'
-# finalFile+='<script>'
-# finalFile+='var path, vis, xy;'
-# finalFile+='xy = d3.geo.mercator().scale(900);'
-# finalFile+='path = d3.geo.path().projection(xy);'
-# finalFile+='vis = d3.select("#mapContainer").append("svg:svg").attr("width", 960).attr("height", 600);'
-# finalFile+='d3.json("output.json", function(json) {'
-# finalFile+='return vis.append("svg:g").attr("class", "tracts").selectAll("path").data(json.features).enter().append("svg:path").attr("d", path).attr("fill-opacity", 0.5).attr("fill", "#85C3C0").attr("stroke", "#222");'
-# finalFile+='});'
-# finalFile+='</script>'
-# finalFile+='</body>'
-# finalFile+='</html>'
-
-# def MakeFile(file_name):
-
-#   temp_path = file_name
-#   file = open(temp_path, 'w')
-#   file.write(finalFile)
-#   file.close()
-#   print 'Execution completed. Map created successfully '
-
-# MakeFile('index.html')
-
 subprocess.Popen(['python', '-m', 'SimpleHTTPServer', '7777'])
 webbrowser.open_new_tab('localhost:7777')
 

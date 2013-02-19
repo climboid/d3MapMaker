@@ -8,22 +8,47 @@
 <body>
   <div id="mapContainer"></div>
     <script>
-    var path, vis, xy;
-    xy = d3.geo.mercator().scale(900);
-    path = d3.geo.path().projection(xy);
-    vis = d3.select("#mapContainer").append("svg:svg").attr("width", 960).attr("height", 600);
+    var width  = 800;
+    var height = 600;
+
+    var vis = d3.select("#mapContainer").append("svg")
+        .attr("width", width).attr("height", height)
+
     d3.json("output.json", function(json) {
-      return vis.append("svg:g")
-                .attr("class", "tracts")
-                .selectAll("path")
-                .data(json.features)
-                .enter()
-                .append("svg:path")
-                .attr("d", path)
-                .attr("fill-opacity", 0.5)
-                .attr("fill", "#85C3C0")
-                .attr("stroke", "#222");
-              });
+        // create a first guess for the projection
+        var center = d3.geo.centroid(json)
+        var scale  = 350;
+        var offset = [width/2, height/2];
+        var projection = d3.geo.mercator().scale(scale).center(center)
+            .translate(offset);
+
+        // create the path
+        var path = d3.geo.path().projection(projection);
+
+        // using the path determine the bounds of the current map and use 
+        // these to determine better values for the scale and translation
+        var bounds  = path.bounds(json);
+        var hscale  = scale*width  / (bounds[1][0] - bounds[0][0]);
+        var vscale  = scale*height / (bounds[1][1] - bounds[0][1]);
+        var scale   = (hscale < vscale) ? hscale : vscale;
+        var offset  = [width - (bounds[0][0] + bounds[1][0])/2,
+                          height - (bounds[0][1] + bounds[1][1])/2];
+
+        // new projection
+        projection = d3.geo.mercator().center(center)
+          .scale(scale).translate(offset);
+        path = path.projection(projection);
+
+        // add a rectangle to see the bound of the svg
+        vis.append("rect").attr('width', width).attr('height', height)
+          .style('stroke', 'black').style('fill', 'none');
+
+        vis.selectAll("path").data(json.features).enter().append("path")
+          .attr("d", path)
+          .style("fill", "red")
+          .style("stroke-width", "1")
+          .style("stroke", "black")
+    });
     </script>
 </body>
 </html>

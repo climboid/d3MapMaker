@@ -39,9 +39,6 @@
           .scale(scale).translate(offset);
         path = path.projection(projection);
 
-        // add a rectangle to see the bound of the svg
-        vis.append("rect").attr('width', width).attr('height', height)
-          .style('stroke', 'black').style('fill', 'none');
 
         vis.selectAll("path").data(json.features).enter().append("path")
           .attr("d", path)

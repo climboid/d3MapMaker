@@ -49,5 +49,9 @@ Once the geoJSON file is there the script will launch a localhost on port 7777 o
   <li>Prettify the HTML code that is generated</li>
 </ol>
 
+## Credit
+I want to thank <a href="http://stackoverflow.com/users/2032478/jan-van-der-laan" taget="_blank">Jan van der Laan</a> and <a href="http://bost.ocks.org/mike/" taget="_blank">Mike Bostock</a> for their full and comprehensive responses to my stack overflow <a href="http://stackoverflow.com/questions/14492284/center-a-map-in-d3-given-a-geojson-object" taget="_blank">questions</a>. With out their answers I would have never figured the centering of the map and the scaling of it on my own... believe me I tried.
+
+
 
   

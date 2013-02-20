@@ -293,6 +293,7 @@ Currently supports python verstion 2.7.2
 <ol>
   <li>Make the dictionary of countries more robust to handle special characters, partial type ins etc.</li>
   <li>If the user types in an error make sure to catch it</li>
+  <li>Some countries do not have regions only the country outlyer, add the option to fetch all availble shp files for a given country</li>
 </ol>
 
 ## Credit

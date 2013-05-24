@@ -1,5 +1,6 @@
 d3MapMaker
 ==========
+There is currently a bug I'm fixing that prevents rendering of the chart, please do not download this repo.
 
 An automated SVG map maker built with Python and d3.js
 
